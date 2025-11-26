@@ -25,12 +25,23 @@
 
   <h1>Contacto</h1>
 
-  <form action="https://formspree.io/f/mqakjznl" method="POST" class="formulario">
+  <!-- FORMULARIO QUE ENVÍA A TU EMAIL SIN MOSTRARLO -->
+  <form action="https://formsubmit.co/3b8c049c0266d4a85e1e90b46787453a" method="POST" class="formulario">
+
     <label>Nombre</label>
     <input type="text" name="nombre" required>
 
+    <label>Email</label>
+    <input type="email" name="email" required>
+
     <label>Mensaje</label>
     <textarea name="mensaje" required></textarea>
+
+    <!-- Opcional: desactivar captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Redirección después de enviar -->
+    <input type="hidden" name="_next" value="https://vikisabor.github.io/Sabor/gracias.html">
 
     <button type="submit">Enviar</button>
   </form>
