@@ -1,0 +1,184 @@
+/* ────────────────────────────
+   PALETA DE COLORES
+────────────────────────────── */
+:root {
+  --c1: #8DA27F;
+  --c2: #7DAA4F;
+  --c3: #4E7C2F;
+  --c4: #5A3A1A;
+  --c5: #A66E2A;
+  --c6: #D29A52;
+  --c7: #95A985;
+  --c8: #C8D0B7;
+  --c9: #5B3418;
+  --c10: #F3E7C8;
+
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Lora', serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--c10);
+  color: var(--c9);
+}
+
+/* ────────────────────────────
+   MENÚ
+────────────────────────────── */
+.menu, .menu-interno {
+  background-color: #ffffffd9;
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.menu ul,
+.menu-interno ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.menu a,
+.menu-interno a {
+  text-decoration: none;
+  color: var(--c4);
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: 0.3s;
+}
+
+.menu a:hover,
+.menu-interno a:hover {
+  color: var(--c2);
+}
+
+/* LOGO EN PÁGINAS INTERNAS */
+.logo-top {
+  position: absolute;
+  left: 2rem;
+  height: 60px;
+  top: 10px;
+}
+
+/* ────────────────────────────
+   INICIO — HERO
+────────────────────────────── */
+.inicio .hero {
+  background-image: url("../Logosabor.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.inicio .hero h1 {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  background-color: #ffffffc4;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+/* ────────────────────────────
+   CONTENIDO GENERAL
+────────────────────────────── */
+.contenido {
+  max-width: 900px;
+  margin: 8rem auto 5rem;
+  padding: 0 2rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  color: var(--c4);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; margin-top: 3rem; }
+h3 { font-size: 1.8rem; margin-top: 2rem; }
+
+p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ────────────────────────────
+   GALERÍAS
+────────────────────────────── */
+.galeria-historia,
+.galeria-productos {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.img-large {
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 10px;
+}
+
+/* ────────────────────────────
+   FORMULARIO
+────────────────────────────── */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 1rem;
+  border: 2px solid var(--c7);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background: #fff;
+}
+
+.formulario button {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid var(--c5);
+  background: transparent;
+  transition: 0.3s;
+}
+
+.formulario button:hover {
+  background: var(--c5);
+  color: white;
+}
+
+/* ────────────────────────────
+   ANIMACIONES
+────────────────────────────── */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1 { font-size: 2.2rem; }
+  .inicio .hero h1 { font-size: 2rem; }
+}
