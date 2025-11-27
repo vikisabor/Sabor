@@ -7,18 +7,17 @@ body {
     color: #3b3b3b;
 }
 
-/* DESVANECER SUAVE */
+/* Animación suave */
 .fade {
     animation: fadeIn 1.2s ease-in-out;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
 
 /* -----------------------------------------------------------
-   MENÚ SUPERIOR (ESTILO ORIGINAL ELEGANTE CON RELIEVE)
+   MENÚ SUPERIOR (ELEGANTE CON RELIEVE)
 ----------------------------------------------------------- */
 
 .top-bar {
@@ -31,7 +30,7 @@ body {
     padding: 12px 25px;
     background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(4px);
-    z-index: 10;
+    z-index: 50;
 }
 
 .logo-top {
@@ -51,14 +50,13 @@ body {
     color: #3b3b3b;
     font-family: "Playfair Display", serif;
     font-size: 18px;
-    
-    /* Estilo anterior con relieve */
+
     padding: 10px 22px;
     background: linear-gradient(to bottom, #ffffff, #e6e6e6);
     border: 1px solid #b3b3b3;
     border-radius: 30px;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
-    
+
     transition: all 0.3s ease;
 }
 
@@ -70,7 +68,7 @@ body {
 }
 
 /* -----------------------------------------------------------
-   INICIO: LOGO GRANDE + FRASE BAJADA
+   INICIO — LOGO GRANDE + FRASE
 ----------------------------------------------------------- */
 
 .inicio-fondo {
@@ -86,19 +84,19 @@ body {
 
 .frase-inicio {
     position: absolute;
-    left: 10%;
-    top: 82%;             /*  <<  MÁS ABAJO AÚN  */
+    left: 12%;
+    top: 78%;                   /* ahora más abajo */
     transform: translateY(-50%);
     font-family: "Playfair Display", serif;
-    font-size: 36px;
+    font-size: 38px;
     font-style: italic;
     color: #3b3b3b;
     max-width: 45%;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    text-shadow: 0px 3px 6px rgba(255,255,255,0.9);
 }
 
 /* -----------------------------------------------------------
-   SECCIONES INTERNAS
+   PÁGINAS INTERNAS
 ----------------------------------------------------------- */
 
 .contenido {
@@ -114,9 +112,8 @@ body {
 }
 
 /* -----------------------------------------------------------
-   FORMULARIO CONTACTO
+   FORMULARIO
 ----------------------------------------------------------- */
-
 .formulario {
     display: flex;
     flex-direction: column;
@@ -166,17 +163,13 @@ body {
     }
 
     .frase-inicio {
-        top: 88%;          /* MÁS ABAJO PARA CELULAR */
-        left: 6%;
+        top: 86%;
+        left: 8%;
         max-width: 80%;
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .logo-top {
         height: 48px;
-    }
-
-    .img-large {
-        max-width: 100%;
     }
 }
