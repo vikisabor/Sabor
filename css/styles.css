@@ -1,239 +1,182 @@
-/* ────────────────────────────
-   PALETA DE COLORES
-────────────────────────────── */
-:root {
-  --c1: #8DA27F;
-  --c2: #7DAA4F;
-  --c3: #4E7C2F;
-  --c4: #5A3A1A;
-  --c5: #A66E2A;
-  --c6: #D29A52;
-  --c7: #95A985;
-  --c8: #C8D0B7;
-  --c9: #5B3418;
-  --c10: #F3E7C8;
-
-  --font-title: 'Playfair Display', serif;
-  --font-body: 'Lora', serif;
-}
-
-/* ────────────────────────────
-   BASE GENERAL
-────────────────────────────── */
+/* -----------------------------------------------------------
+   ESTILOS GENERALES
+----------------------------------------------------------- */
 body {
-  margin: 0;
-  background-color: var(--c10);
-  color: var(--c9);
-  font-family: var(--font-body);
-  line-height: 1.7;
+    margin: 0;
+    font-family: "Lora", serif;
+    color: #3b3b3b;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-  border-radius: 10px;
+/* DESVANECER SUAVE */
+.fade {
+    animation: fadeIn 1.2s ease-in-out;
 }
 
-/* ────────────────────────────
-   MENÚ (GENERAL)
-────────────────────────────── */
-.menu,
-.menu-interno {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #ffffffde;
-  backdrop-filter: blur(6px);
-  padding: 1rem;
-  z-index: 1000;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-.menu nav ul,
-.menu-interno nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  margin: 0;
-  padding: 0;
+/* -----------------------------------------------------------
+   MENÚ SUPERIOR (ESTILO ORIGINAL ELEGANTE CON RELIEVE)
+----------------------------------------------------------- */
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(4px);
+    z-index: 10;
 }
 
-.menu nav ul a,
-.menu-interno nav ul a {
-  text-decoration: none;
-  color: var(--c4);
-  font-size: 1.4rem;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.menu nav ul a:hover,
-.menu-interno nav ul a:hover {
-  color: var(--c2);
-}
-
-/* LOGO INTERNO */
 .logo-top {
-  position: absolute;
-  left: 1.5rem;
-  top: 0.5rem;
-  height: 58px;
+    height: 60px;
 }
 
-/* ────────────────────────────
-   INICIO
-────────────────────────────── */
-.inicio .hero {
-  height: 100vh;
-  background-image: url("../Logosabor.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  padding-left: 8%;
+.menu-interno ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
 }
 
-.inicio .hero .frase h1 {
-  font-family: var(--font-title);
-  font-size: 3.4rem;
-  color: var(--c4);
-  background: #ffffffc9;
-  padding: 1.8rem 2.4rem;
-  max-width: 520px;
-  border-radius: 12px;
-  line-height: 1.25;
+.menu-interno a {
+    text-decoration: none;
+    color: #3b3b3b;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    
+    /* Estilo anterior con relieve */
+    padding: 10px 22px;
+    background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    border: 1px solid #b3b3b3;
+    border-radius: 30px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
+    
+    transition: all 0.3s ease;
 }
 
-/* ────────────────────────────
-   CONTENIDO GENERAL
-────────────────────────────── */
+.menu-interno a:hover {
+    background: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
+    border-color: #8f8f8f;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.25);
+}
+
+/* -----------------------------------------------------------
+   INICIO: LOGO GRANDE + FRASE BAJADA
+----------------------------------------------------------- */
+
+.inicio-fondo {
+    width: 100%;
+    height: 92vh;
+    background-image: url('../Logosabor.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    margin-top: 90px;
+}
+
+.frase-inicio {
+    position: absolute;
+    left: 10%;
+    top: 82%;             /*  <<  MÁS ABAJO AÚN  */
+    transform: translateY(-50%);
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    font-style: italic;
+    color: #3b3b3b;
+    max-width: 45%;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+/* -----------------------------------------------------------
+   SECCIONES INTERNAS
+----------------------------------------------------------- */
+
 .contenido {
-  max-width: 900px;
-  margin: 8rem auto 5rem;
-  padding: 0 2rem;
+    padding: 140px 8% 60px;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-title);
-  color: var(--c4);
+.img-large {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    display: block;
+    border-radius: 10px;
 }
 
-h1 { font-size: 3rem; margin-bottom: 1.5rem; }
-h2 { font-size: 2.4rem; margin-top: 3rem; }
-h3 { font-size: 1.9rem; margin-top: 2rem; }
-
-p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-/* ────────────────────────────
-   GALERÍAS
-────────────────────────────── */
-.galeria-historia,
-.galeria-productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.8rem;
-  margin-top: 2.5rem;
-}
-
-/* ────────────────────────────
+/* -----------------------------------------------------------
    FORMULARIO CONTACTO
-────────────────────────────── */
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 2rem 0;
-}
+----------------------------------------------------------- */
 
-.formulario label {
-  font-size: 1.3rem;
-  font-weight: bold;
+.formulario {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin-bottom: 40px;
 }
 
 .formulario input,
 .formulario textarea {
-  padding: 1rem;
-  font-size: 1.2rem;
-  border: 2px solid var(--c7);
-  border-radius: 10px;
-  background: white;
-}
-
-.formulario textarea {
-  min-height: 150px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: "Lora", serif;
 }
 
 .formulario button {
-  padding: 1rem;
-  font-size: 1.3rem;
-  border: 2px solid var(--c5);
-  background: transparent;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+    background-color: #3b3b3b;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .formulario button:hover {
-  background: var(--c5);
-  color: white;
+    background-color: #5b5b5b;
 }
 
-/* ────────────────────────────
-   ANIMACIONES
-────────────────────────────── */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ────────────────────────────
+/* -----------------------------------------------------------
    RESPONSIVE
-────────────────────────────── */
-@media (max-width: 900px) {
-  .inicio .hero .frase h1 {
-    font-size: 2.6rem;
-    padding: 1.5rem 2rem;
-  }
-}
+----------------------------------------------------------- */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
-  .menu nav ul,
-  .menu-interno nav ul {
-    gap: 1.5rem;
-  }
+    .menu-interno a {
+        padding: 8px 14px;
+        font-size: 15px;
+        border-radius: 24px;
+    }
 
-  .menu nav ul a,
-  .menu-interno nav ul a {
-    font-size: 1.2rem;
-  }
+    .inicio-fondo {
+        background-size: 95%;
+    }
 
-  .inicio .hero {
-    padding-left: 0;
-    justify-content: center;
-    text-align: center;
-  }
+    .frase-inicio {
+        top: 88%;          /* MÁS ABAJO PARA CELULAR */
+        left: 6%;
+        max-width: 80%;
+        font-size: 26px;
+    }
 
-  .inicio .hero .frase h1 {
-    font-size: 2.1rem;
-    max-width: 90%;
-  }
+    .logo-top {
+        height: 48px;
+    }
 
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.6rem; }
-
-  p { font-size: 1.15rem; }
+    .img-large {
+        max-width: 100%;
+    }
 }
