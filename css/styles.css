@@ -1,175 +1,184 @@
-/* -----------------------------------------------------------
-   ESTILOS GENERALES
------------------------------------------------------------ */
+/* ────────────────────────────
+   PALETA DE COLORES
+────────────────────────────── */
+:root {
+  --c1: #8DA27F;
+  --c2: #7DAA4F;
+  --c3: #4E7C2F;
+  --c4: #5A3A1A;
+  --c5: #A66E2A;
+  --c6: #D29A52;
+  --c7: #95A985;
+  --c8: #C8D0B7;
+  --c9: #5B3418;
+  --c10: #F3E7C8;
+
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Lora', serif;
+}
+
 body {
-    margin: 0;
-    font-family: "Lora", serif;
-    color: #3b3b3b;
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--c10);
+  color: var(--c9);
 }
 
-/* Animación suave */
-.fade {
-    animation: fadeIn 1.2s ease-in-out;
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* -----------------------------------------------------------
-   MENÚ SUPERIOR (ELEGANTE CON RELIEVE)
------------------------------------------------------------ */
-
-.top-bar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 25px;
-    background-color: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(4px);
-    z-index: 50;
+/* ────────────────────────────
+   MENÚ
+────────────────────────────── */
+.menu, .menu-interno {
+  background-color: #ffffffd9;
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
 }
 
-.logo-top {
-    height: 60px;
-}
-
+.menu ul,
 .menu-interno ul {
-    list-style: none;
-    display: flex;
-    gap: 18px;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
 }
 
+.menu a,
 .menu-interno a {
-    text-decoration: none;
-    color: #3b3b3b;
-    font-family: "Playfair Display", serif;
-    font-size: 18px;
-
-    padding: 10px 22px;
-    background: linear-gradient(to bottom, #ffffff, #e6e6e6);
-    border: 1px solid #b3b3b3;
-    border-radius: 30px;
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
-
-    transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--c4);
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: 0.3s;
 }
 
+.menu a:hover,
 .menu-interno a:hover {
-    background: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
-    border-color: #8f8f8f;
-    transform: translateY(-2px);
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.25);
+  color: var(--c2);
 }
 
-/* -----------------------------------------------------------
-   INICIO — LOGO GRANDE + FRASE
------------------------------------------------------------ */
-
-.inicio-fondo {
-    width: 100%;
-    height: 92vh;
-    background-image: url('../Logosabor.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    margin-top: 90px;
+/* LOGO EN PÁGINAS INTERNAS */
+.logo-top {
+  position: absolute;
+  left: 2rem;
+  height: 60px;
+  top: 10px;
 }
 
-.frase-inicio {
-    position: absolute;
-    left: 12%;
-    top: 78%;                   /* ahora más abajo */
-    transform: translateY(-50%);
-    font-family: "Playfair Display", serif;
-    font-size: 38px;
-    font-style: italic;
-    color: #3b3b3b;
-    max-width: 45%;
-    text-shadow: 0px 3px 6px rgba(255,255,255,0.9);
+/* ────────────────────────────
+   INICIO — HERO
+────────────────────────────── */
+.inicio .hero {
+  background-image: url("../Logosabor.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
 }
 
-/* -----------------------------------------------------------
-   PÁGINAS INTERNAS
------------------------------------------------------------ */
+.inicio .hero h1 {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  background-color: #ffffffc4;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
 
+/* ────────────────────────────
+   CONTENIDO GENERAL
+────────────────────────────── */
 .contenido {
-    padding: 140px 8% 60px;
+  max-width: 900px;
+  margin: 8rem auto 5rem;
+  padding: 0 2rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  color: var(--c4);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; margin-top: 3rem; }
+h3 { font-size: 1.8rem; margin-top: 2rem; }
+
+p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ────────────────────────────
+   GALERÍAS
+────────────────────────────── */
+.galeria-historia,
+.galeria-productos {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .img-large {
-    width: 100%;
-    max-width: 900px;
-    margin: 30px auto;
-    display: block;
-    border-radius: 10px;
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 10px;
 }
 
-/* -----------------------------------------------------------
+/* ────────────────────────────
    FORMULARIO
------------------------------------------------------------ */
+────────────────────────────── */
 .formulario {
-    display: flex;
-    flex-direction: column;
-    max-width: 450px;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .formulario input,
 .formulario textarea {
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #aaa;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: "Lora", serif;
+  padding: 1rem;
+  border: 2px solid var(--c7);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background: #fff;
 }
 
 .formulario button {
-    background-color: #3b3b3b;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid var(--c5);
+  background: transparent;
+  transition: 0.3s;
 }
 
 .formulario button:hover {
-    background-color: #5b5b5b;
+  background: var(--c5);
+  color: white;
 }
 
-/* -----------------------------------------------------------
-   RESPONSIVE
------------------------------------------------------------ */
+/* ────────────────────────────
+   ANIMACIONES
+────────────────────────────── */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
-    .menu-interno a {
-        padding: 8px 14px;
-        font-size: 15px;
-        border-radius: 24px;
-    }
-
-    .inicio-fondo {
-        background-size: 95%;
-    }
-
-    .frase-inicio {
-        top: 86%;
-        left: 8%;
-        max-width: 80%;
-        font-size: 28px;
-    }
-
-    .logo-top {
-        height: 48px;
-    }
+  h1 { font-size: 2.2rem; }
+  .inicio .hero h1 { font-size: 2rem; }
 }
