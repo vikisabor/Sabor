@@ -60,6 +60,12 @@ nav ul li a:hover {
     color: white;
 }
 
+.logo-top {
+    height: 45px;    /* tamaño ideal para escritorio */
+    width: auto;
+    object-fit: contain;
+}
+
 /* ----------------------------------------------------------
    HERO (PÁGINA DE INICIO)
 ----------------------------------------------------------- */
