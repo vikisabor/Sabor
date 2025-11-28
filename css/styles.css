@@ -87,7 +87,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/Logosabor.webp');
+    background-image: url('Logosabor.webp');
     background-size: 280px; /* Ajusta tamaño del logo */
     background-repeat: no-repeat;
     background-position: center;
