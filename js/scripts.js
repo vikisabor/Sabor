@@ -1,109 +1,35 @@
-/* COLORES */
-:root {
-    --verde1: #8DA27F;
-    --verde2: #7DAA4F;
-    --verde3: #4E7C2F;
-    --marron1: #5A3A1A;
-    --marron2: #A66E2A;
-    --marron3: #D29A52;
-    --gris1: #95A985;
-    --gris2: #C8D0B7;
-    --oscuro1: #5B3418;
-    --crema: #F3E7C8;
-}
+/* Animación al hacer scroll */
+document.addEventListener("DOMContentLoaded", () => {
+    const elementos = document.querySelectorAll(".fade");
 
-/* GENERALES */
-body {
-    margin: 0;
-    background: var(--crema);
-    color: var(--oscuro1);
-    font-family: 'Montserrat', sans-serif;
-}
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.15 });
 
-/* NAVBAR */
-.nav-container {
-    background: var(--verde3);
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    z-index: 20;
-}
+    elementos.forEach(el => observer.observe(el));
+});
 
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
+/* Animación inicial: frase → fade → logo */
+document.addEventListener("DOMContentLoaded", () => {
+    const texto = document.querySelector(".welcome");
+    const fondoLogo = document.getElementById("fondo-logo");
 
-.navbar a {
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
+    if (!texto || !fondoLogo) return;
 
-.navbar a:hover {
-    opacity: 0.8;
-}
+    const TIEMPO_VISIBLE = 2500; // ms
+    const TIEMPO_FADE = 1200;
 
-/* HERO */
-.hero {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--crema);
-    position: relative;
-    overflow: hidden;
-}
+    // Espera visible
+    setTimeout(() => {
+        texto.classList.add("fade-out");
 
-.welcome {
-    font-size: 2.4rem;
-    font-family: 'Lora', serif;
-    text-align: center;
-    opacity: 1;
-    transition: opacity 1.2s ease;
-}
+        setTimeout(() => {
+            fondoLogo.classList.add("show");
+        }, TIEMPO_FADE);
 
-/* El texto se oculta suavemente */
-.welcome.fade-out {
-    opacity: 0;
-}
-
-/* LOGO COMO FONDO */
-#fondo-logo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("Logosabor.webp") center/contain no-repeat;
-    opacity: 0;
-    transition: opacity 1.5s ease;
-    z-index: -1;
-}
-
-/* Cuando debe aparecer */
-#fondo-logo.show {
-    opacity: 1;
-}
-
-/* FADE EN ELEMENTOS SCROLL */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.fade.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .welcome {
-        font-size: 1.9rem;
-    }
-}
+    }, TIEMPO_VISIBLE);
+});
