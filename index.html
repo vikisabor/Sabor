@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabor di Casa – Inicio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sabor di Casa – Inicio</title>
 
-    <!-- Tipografías -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
-
 <body class="inicio">
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="historia.html">Nuestra Historia</a>
-            <a href="productos.html">Nuestros Productos</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-    </header>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- logo pequeño: en index no se muestra (se muestra en internas) pero lo dejamos para otras páginas -->
+      <a href="index.html" class="logo-link" aria-label="Sabor di Casa">
+        <img src="Logosabor.webp" alt="Sabor di Casa logo" class="logo-small">
+      </a>
 
-    <!-- FRASE DE BIENVENIDA -->
-    <section id="bienvenida">
-        <h1 class="frase">
-            Sabores que transforman lo cotidiano en extraordinario
-        </h1>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="nosotros.html" data-xnav>Nuestra Historia</a>
+        <a href="panes.html" data-xnav>Nuestros Productos</a>
+        <a href="contacto.html" data-xnav>Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO: frase visible al cargar → se difumina → aparece logo de fondo -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">Sabores que transforman lo cotidiano en extraordinario</h1>
+      </div>
     </section>
+  </main>
 
-    <!-- LOGO COMO FONDO -->
-    <div id="fondo-logo"></div>
+  <!-- footer mínimo para mantener consistencia -->
+  <footer class="site-footer">
+    <p>© 2025 Sabor di Casa · Panificados artesanales</p>
+  </footer>
 
-    <script src="scripts.js"></script>
 </body>
-</html>
+      </html>
