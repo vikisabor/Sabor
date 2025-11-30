@@ -254,3 +254,20 @@ button:hover {
         max-width: 70%;
     }
 }
+
+/* LOGO FIJO SUPERIOR */
+.logo-fixed {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 90px;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+    z-index: 1000;
+    pointer-events: none; /* No molesta al usuario */
+}
+
+/* Cuando se hace scroll */
+.logo-hidden {
+    opacity: 0;
+}
