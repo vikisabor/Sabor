@@ -1,6 +1,6 @@
-/* ------------------------------
-   VARIABLES DE COLOR
------------------------------- */
+/* ────────────────────────────
+   PALETA DE COLORES
+────────────────────────────── */
 :root {
   --c1: #8DA27F;
   --c2: #7DAA4F;
@@ -13,137 +13,172 @@
   --c9: #5B3418;
   --c10: #F3E7C8;
 
-  --font-title: "Playfair Display", serif;
-  --font-body: "Lora", serif;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Lora', serif;
 }
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* BODY GENERAL */
 body {
+  margin: 0;
   font-family: var(--font-body);
-  background: var(--c10);
+  background-color: var(--c10);
   color: var(--c9);
-  line-height: 1.6;
 }
 
-/* ------------------------------
-   HEADER / MENÚ FIJO
------------------------------- */
-.site-header {
+/* ────────────────────────────
+   MENÚ
+────────────────────────────── */
+.menu, .menu-interno {
+  background-color: #ffffffd9;
+  backdrop-filter: blur(6px);
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(243,231,200,0.8);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--c7);
   z-index: 1000;
+  padding: 1rem 0;
 }
 
-.header-inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-small {
-  width: 75px;
-  opacity: 0; /* en inicio oculto */
-  transition: opacity 0.5s ease;
-}
-
-body:not(.inicio) .logo-small {
-  opacity: 1;
-}
-
-/* NAV */
-.main-nav a {
-  margin-left: 25px;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: var(--c4);
-  font-weight: 600;
-  position: relative;
-}
-
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background: var(--c3);
-  transition: width 0.3s ease;
-}
-
-.main-nav a:hover::after {
-  width: 100%;
-}
-
-/* ------------------------------
-   HERO
------------------------------- */
-.hero {
-  height: 100vh;
-  background: url("Logosabor.webp") center/contain no-repeat;
+.menu ul,
+.menu-interno ul {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 120px 20px 40px;
+  list-style: none;
+  gap: 2rem;
 }
 
-.hero-title {
+.menu a,
+.menu-interno a {
+  text-decoration: none;
+  color: var(--c4);
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: 0.3s;
+}
+
+.menu a:hover,
+.menu-interno a:hover {
+  color: var(--c2);
+}
+
+/* LOGO EN PÁGINAS INTERNAS */
+.logo-top {
+  position: absolute;
+  left: 2rem;
+  height: 60px;
+  top: 10px;
+}
+
+/* ────────────────────────────
+   INICIO — HERO
+────────────────────────────── */
+.inicio .hero {
+  background-image: url("../Logosabor.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.inicio .hero h1 {
   font-family: var(--font-title);
   font-size: 2.8rem;
-  color: var(--c4);
-  text-align: center;
+  background-color: #ffffffc4;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+/* ────────────────────────────
+   CONTENIDO GENERAL
+────────────────────────────── */
+.contenido {
   max-width: 900px;
-  opacity: 0;
-  animation: fadein 2s forwards ease;
+  margin: 8rem auto 5rem;
+  padding: 0 2rem;
 }
 
-/* ------------------------------
-   FOOTER
------------------------------- */
-.site-footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 1.1rem;
+h1, h2, h3 {
+  font-family: var(--font-title);
   color: var(--c4);
 }
 
-/* ------------------------------
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; margin-top: 3rem; }
+h3 { font-size: 1.8rem; margin-top: 2rem; }
+
+p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ────────────────────────────
+   GALERÍAS
+────────────────────────────── */
+.galeria-historia,
+.galeria-productos {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.img-large {
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 10px;
+}
+
+/* ────────────────────────────
+   FORMULARIO
+────────────────────────────── */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 1rem;
+  border: 2px solid var(--c7);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background: #fff;
+}
+
+.formulario button {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid var(--c5);
+  background: transparent;
+  transition: 0.3s;
+}
+
+.formulario button:hover {
+  background: var(--c5);
+  color: white;
+}
+
+/* ────────────────────────────
    ANIMACIONES
------------------------------- */
-@keyframes fadein {
-  to { opacity: 1; }
+────────────────────────────── */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-/* ------------------------------
-   RESPONSIVE
------------------------------- */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .main-nav a {
-    font-size: 1rem;
-    margin-left: 15px;
-  }
-
-  .hero-title {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.8rem;
-  }
+  h1 { font-size: 2.2rem; }
+  .inicio .hero h1 { font-size: 2rem; }
 }
