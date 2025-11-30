@@ -254,19 +254,3 @@ button:hover {
         max-width: 70%;
     }
 }
-
-/* Mostrar el logo pequeño también en la página de inicio */
-.inicio .logo-small {
-    display: block !important;
-}
-
-/* Animación del logo al hacer scroll */
-.logo-small {
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.logo-small.logo-hide {
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-       }
