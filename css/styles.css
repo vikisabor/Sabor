@@ -254,3 +254,8 @@ button:hover {
         max-width: 70%;
     }
 }
+
+/* Mostrar el logo pequeño también en la página de inicio */
+.inicio .logo-small {
+    display: block !important;
+}
