@@ -1,184 +1,256 @@
-/* ────────────────────────────
-   PALETA DE COLORES
-────────────────────────────── */
-:root {
-  --c1: #8DA27F;
-  --c2: #7DAA4F;
-  --c3: #4E7C2F;
-  --c4: #5A3A1A;
-  --c5: #A66E2A;
-  --c6: #D29A52;
-  --c7: #95A985;
-  --c8: #C8D0B7;
-  --c9: #5B3418;
-  --c10: #F3E7C8;
-
-  --font-title: 'Playfair Display', serif;
-  --font-body: 'Lora', serif;
-}
+/* ----------------------------------------------------------
+   TIPOGRAFÍAS GENERALES
+----------------------------------------------------------- */
 
 body {
-  margin: 0;
-  font-family: var(--font-body);
-  background-color: var(--c10);
-  color: var(--c9);
+    margin: 0;
+    padding: 0;
+    font-family: "Lora", serif;
+    background-color: #F3E7C8;
+    color: #5B3418;
+    line-height: 1.6;
+    font-size: 1.2rem;
 }
 
-/* ────────────────────────────
-   MENÚ
-────────────────────────────── */
-.menu, .menu-interno {
-  background-color: #ffffffd9;
-  backdrop-filter: blur(6px);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 1rem 0;
+/* ----------------------------------------------------------
+   MENÚ FIJO
+----------------------------------------------------------- */
+
+header {
+    width: 100%;
+    background-color: rgba(243, 231, 200, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    padding: 10px 0;
 }
 
-.menu ul,
-.menu-interno ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 2rem;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
 }
 
-.menu a,
-.menu-interno a {
-  text-decoration: none;
-  color: var(--c4);
-  font-weight: bold;
-  font-size: 1.3rem;
-  transition: 0.3s;
+nav img {
+    height: 60px;
 }
 
-.menu a:hover,
-.menu-interno a:hover {
-  color: var(--c2);
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
 }
 
-/* LOGO EN PÁGINAS INTERNAS */
-.logo-top {
-  position: absolute;
-  left: 2rem;
-  height: 60px;
-  top: 10px;
+nav ul li a {
+    text-decoration: none;
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    color: #4E7C2F;
+    padding: 6px 12px;
+    border: 1px solid #7DAA4F;
+    border-radius: 5px;
+    transition: 0.3s ease;
 }
 
-/* ────────────────────────────
-   INICIO — HERO
-────────────────────────────── */
-.inicio .hero {
-  background-image: url("../Logosabor.webp");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  text-align: center;
+nav ul li a:hover {
+    background-color: #7DAA4F;
+    color: white;
 }
 
-.inicio .hero h1 {
-  font-family: var(--font-title);
-  font-size: 2.8rem;
-  background-color: #ffffffc4;
-  padding: 1rem 2rem;
-  border-radius: 10px;
+/* ----------------------------------------------------------
+   HERO (PÁGINA DE INICIO)
+----------------------------------------------------------- */
+
+.hero {
+    background-image: url('../img/Logosabor.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5%;
 }
 
-/* ────────────────────────────
+.hero-text {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    max-width: 40%;
+    text-align: right;
+    color: #5B3418;
+    font-style: italic;
+    line-height: 1.3;
+    animation: fadeIn 1.8s ease;
+}
+
+/* ----------------------------------------------------------
+   ENCABEZADOS
+----------------------------------------------------------- */
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.8rem;
+    color: #4E7C2F;
+    text-align: center;
+    margin-top: 40px;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    color: #7DAA4F;
+    margin-top: 25px;
+}
+
+h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.7rem;
+    color: #5B3418;
+    margin-top: 20px;
+}
+
+/* ----------------------------------------------------------
+   IMÁGENES
+----------------------------------------------------------- */
+
+img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(90, 58, 26, 0.2);
+}
+
+/* Imágenes dentro de productos */
+.producto img {
+    max-width: 45%;
+}
+
+/* ----------------------------------------------------------
    CONTENIDO GENERAL
-────────────────────────────── */
-.contenido {
-  max-width: 900px;
-  margin: 8rem auto 5rem;
-  padding: 0 2rem;
+----------------------------------------------------------- */
+
+section, main {
+    padding: 40px 8%;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-title);
-  color: var(--c4);
+/* ----------------------------------------------------------
+   FORMULARIO DE CONTACTO
+----------------------------------------------------------- */
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(90, 58, 26, 0.2);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; margin-top: 3rem; }
-h3 { font-size: 1.8rem; margin-top: 2rem; }
-
-p {
-  font-size: 1.3rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
 }
 
-/* ────────────────────────────
-   GALERÍAS
-────────────────────────────── */
-.galeria-historia,
-.galeria-productos {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #A66E2A;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background-color: #F8F4EB;
 }
 
-.img-large {
-  width: 100%;
-  margin-top: 2rem;
-  border-radius: 10px;
+button {
+    padding: 12px 20px;
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    border: 2px solid #4E7C2F;
+    background: transparent;
+    color: #4E7C2F;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-/* ────────────────────────────
-   FORMULARIO
-────────────────────────────── */
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+button:hover {
+    background-color: #4E7C2F;
+    color: white;
 }
 
-.formulario input,
-.formulario textarea {
-  padding: 1rem;
-  border: 2px solid var(--c7);
-  border-radius: 8px;
-  font-size: 1.1rem;
-  background: #fff;
-}
-
-.formulario button {
-  padding: 1rem;
-  font-size: 1.2rem;
-  border: 2px solid var(--c5);
-  background: transparent;
-  transition: 0.3s;
-}
-
-.formulario button:hover {
-  background: var(--c5);
-  color: white;
-}
-
-/* ────────────────────────────
+/* ----------------------------------------------------------
    ANIMACIONES
-────────────────────────────── */
-.fade {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
+----------------------------------------------------------- */
+
+.fade-in {
+    animation: fadeIn 1.2s ease;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.slide-up {
+    animation: slideUp 1s ease;
 }
 
-/* RESPONSIVE */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------------- */
+
 @media (max-width: 768px) {
-  h1 { font-size: 2.2rem; }
-  .inicio .hero h1 { font-size: 2rem; }
+
+    body {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        justify-content: center;
+        padding: 0;
+        text-align: center;
+    }
+
+    .hero-text {
+        font-size: 2.2rem;
+        max-width: 80%;
+        text-align: center;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav ul li a {
+        padding: 4px 8px;
+        font-size: 1rem;
+    }
+
+    img {
+        max-width: 90%;
+    }
+
+    .producto img {
+        max-width: 70%;
+    }
 }
