@@ -1,239 +1,120 @@
-/* ────────────────────────────
-   PALETA DE COLORES
-────────────────────────────── */
+/* PALETA — Identidad elegante + artesanal + moderno */
 :root {
-  --c1: #8DA27F;
-  --c2: #7DAA4F;
-  --c3: #4E7C2F;
-  --c4: #5A3A1A;
-  --c5: #A66E2A;
-  --c6: #D29A52;
-  --c7: #95A985;
-  --c8: #C8D0B7;
-  --c9: #5B3418;
-  --c10: #F3E7C8;
-
-  --font-title: 'Playfair Display', serif;
-  --font-body: 'Lora', serif;
+    --verde1: #8DA27F;
+    --verde2: #7DAA4F;
+    --verde3: #4E7C2F;
+    --marron1: #5A3A1A;
+    --marron2: #A66E2A;
+    --marron3: #D29A52;
+    --neutro1: #95A985;
+    --neutro2: #C8D0B7;
+    --marron-oscuro: #5B3418;
+    --arena: #F3E7C8;
 }
 
-/* ────────────────────────────
-   BASE GENERAL
-────────────────────────────── */
+/* RESETEO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  background-color: var(--c10);
-  color: var(--c9);
-  font-family: var(--font-body);
-  line-height: 1.7;
+    font-family: 'Lora', serif;
+    background-color: var(--arena);
+    color: var(--marron-oscuro);
+    overflow-x: hidden;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-  border-radius: 10px;
-}
-
-/* ────────────────────────────
-   MENÚ (GENERAL)
-────────────────────────────── */
-.menu,
-.menu-interno {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #ffffffde;
-  backdrop-filter: blur(6px);
-  padding: 1rem;
-  z-index: 1000;
-}
-
-.menu nav ul,
-.menu-interno nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-.menu nav ul a,
-.menu-interno nav ul a {
-  text-decoration: none;
-  color: var(--c4);
-  font-size: 1.4rem;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.menu nav ul a:hover,
-.menu-interno nav ul a:hover {
-  color: var(--c2);
-}
-
-/* LOGO INTERNO */
-.logo-top {
-  position: absolute;
-  left: 1.5rem;
-  top: 0.5rem;
-  height: 58px;
-}
-
-/* ────────────────────────────
-   INICIO
-────────────────────────────── */
-.inicio .hero {
-  height: 100vh;
-  background-image: url("../Logosabor.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  padding-left: 8%;
-}
-
-.inicio .hero .frase h1 {
-  font-family: var(--font-title);
-  font-size: 3.4rem;
-  color: var(--c4);
-  background: #ffffffc9;
-  padding: 1.8rem 2.4rem;
-  max-width: 520px;
-  border-radius: 12px;
-  line-height: 1.25;
-}
-
-/* ────────────────────────────
-   CONTENIDO GENERAL
-────────────────────────────── */
-.contenido {
-  max-width: 900px;
-  margin: 8rem auto 5rem;
-  padding: 0 2rem;
-}
-
-h1, h2, h3 {
-  font-family: var(--font-title);
-  color: var(--c4);
-}
-
-h1 { font-size: 3rem; margin-bottom: 1.5rem; }
-h2 { font-size: 2.4rem; margin-top: 3rem; }
-h3 { font-size: 1.9rem; margin-top: 2rem; }
-
-p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-/* ────────────────────────────
-   GALERÍAS
-────────────────────────────── */
-.galeria-historia,
-.galeria-productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.8rem;
-  margin-top: 2.5rem;
-}
-
-/* ────────────────────────────
-   FORMULARIO CONTACTO
-────────────────────────────── */
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.formulario label {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-.formulario input,
-.formulario textarea {
-  padding: 1rem;
-  font-size: 1.2rem;
-  border: 2px solid var(--c7);
-  border-radius: 10px;
-  background: white;
-}
-
-.formulario textarea {
-  min-height: 150px;
-}
-
-.formulario button {
-  padding: 1rem;
-  font-size: 1.3rem;
-  border: 2px solid var(--c5);
-  background: transparent;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.formulario button:hover {
-  background: var(--c5);
-  color: white;
-}
-
-/* ────────────────────────────
-   ANIMACIONES
-────────────────────────────── */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ────────────────────────────
-   RESPONSIVE
-────────────────────────────── */
-@media (max-width: 900px) {
-  .inicio .hero .frase h1 {
-    font-size: 2.6rem;
-    padding: 1.5rem 2rem;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .menu nav ul,
-  .menu-interno nav ul {
-    gap: 1.5rem;
-  }
-
-  .menu nav ul a,
-  .menu-interno nav ul a {
-    font-size: 1.2rem;
-  }
-
-  .inicio .hero {
-    padding-left: 0;
-    justify-content: center;
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(243, 231, 200, 0.8);
+    backdrop-filter: blur(6px);
+    padding: 12px 0;
+    z-index: 50;
     text-align: center;
-  }
+}
 
-  .inicio .hero .frase h1 {
-    font-size: 2.1rem;
-    max-width: 90%;
-  }
+.navbar nav a {
+    font-family: 'Lora', serif;
+    margin: 0 22px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--marron-oscuro);
+    transition: 0.3s;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
 
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.6rem; }
+.navbar nav a:hover {
+    border-bottom: 2px solid var(--verde3);
+}
 
-  p { font-size: 1.15rem; }
+/* SECCIÓN DE BIENVENIDA */
+#bienvenida {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.frase {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    line-height: 1.3;
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeIn 2.8s ease forwards;
+}
+
+/* LOGO COMO FONDO DESPUÉS DE LA FRASE */
+#fondo-logo {
+    position: fixed;
+    inset: 0;
+    background-image: url("Logosabor.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: showLogo 4s ease 2.5s forwards;
+    z-index: -1;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes showLogo {
+    0% { opacity: 0; filter: blur(8px); }
+    100% { opacity: 1; filter: blur(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+    .frase {
+        font-size: 2.2rem;
+        padding: 0 20px;
+    }
+
+    .navbar nav a {
+        font-size: 1.1rem;
+        margin: 0 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .frase {
+        font-size: 1.7rem;
+    }
 }
