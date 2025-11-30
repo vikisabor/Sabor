@@ -14,23 +14,29 @@ document.addEventListener("DOMContentLoaded", () => {
   elementos.forEach(el => observer.observe(el));
 });
 
-// --- EFECTO: FRASE SE DESVANECE Y APARECE LOGO DE FONDO ---
+// Mostrar la frase, luego difuminar y mostrar el logo como fondo
+document.addEventListener('DOMContentLoaded', () => {
+  const hero = document.querySelector('.hero');
+  const welcome = document.querySelector('.hero .welcome');
 
-window.onload = function () {
+  if (!hero || !welcome) return;
 
-    const texto = document.getElementById("bienvenida");
-    const logoFondo = document.getElementById("fondo-logo");
+  // Tiempo que la frase permanece visible (ms)
+  const VISIBLE_MS = 2500; // 2.5 s — podés aumentar si querés
+  // Tiempo del fade antes de mostrar logo (ms)
+  const FADE_MS = 900;
 
-    // Tiempo que la frase queda visible (en milisegundos)
+  // Aseguramos que el hero tenga la clase de entrada
+  hero.classList.add('fade-in');
+
+  // Después de VISIBLE_MS, ocultamos la frase (fade)
+  setTimeout(() => {
+    hero.classList.add('welcome-hidden');
+    // Esperamos la transición de opacidad antes de mostrar el fondo
     setTimeout(() => {
+      hero.classList.add('show-logo');
+    }, FADE_MS);
+  }, VISIBLE_MS);
 
-        // Desvanece la frase
-        texto.style.opacity = "0";
-
-        // Luego de desvanecer, aparece el logo
-        setTimeout(() => {
-            logoFondo.style.opacity = "1";
-        }, 2000); // coincide con transición CSS
-
-    }, 2500); // frase visible 2.5 segundos antes de desaparecer
-};
+  // Opcional: si querés que la frase vuelva luego de X segundos, podrías revertir aquí.
+});
