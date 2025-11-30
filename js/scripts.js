@@ -25,3 +25,15 @@ document.addEventListener("scroll", () => {
     logo.classList.remove("logo-hide");
   }
 });
+
+document.addEventListener("scroll", () => {
+    const logo = document.querySelector(".logo-fixed");
+
+    if (!logo) return;
+
+    if (window.scrollY > 40) {
+        logo.classList.add("logo-hidden");
+    } else {
+        logo.classList.remove("logo-hidden");
+    }
+});
