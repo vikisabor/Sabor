@@ -1,7 +1,4 @@
-/* ------------------------------------
-   PALETA DE COLORES Y TIPOGRAFÍA
-------------------------------------- */
-
+/* COLORES */
 :root {
     --verde1: #8DA27F;
     --verde2: #7DAA4F;
@@ -13,206 +10,100 @@
     --gris2: #C8D0B7;
     --oscuro1: #5B3418;
     --crema: #F3E7C8;
-    --transparente: rgba(0,0,0,0);
 }
 
+/* GENERALES */
 body {
     margin: 0;
-    padding: 0;
-    background-color: var(--crema);
-    font-family: 'Montserrat', sans-serif;
+    background: var(--crema);
     color: var(--oscuro1);
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* ------------------------------------
-   NAVBAR FIJO
-------------------------------------- */
-
-header {
-    background-color: var(--verde3);
-    padding: 12px 0;
-    text-align: center;
-    position: sticky;
-    top: 0;
+/* NAVBAR */
+.nav-container {
+    background: var(--verde3);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
     z-index: 20;
 }
 
-header img {
-    width: 110px;
-}
-
-nav {
-    background-color: var(--verde2);
-    padding: 10px 0;
-    position: sticky;
-    top: 110px;
-    z-index: 19;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.navbar {
     display: flex;
     justify-content: center;
-    gap: 22px;
+    gap: 25px;
 }
 
-nav ul li a {
-    text-decoration: none;
+.navbar a {
     color: white;
-    background: var(--verde3);
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: 0.3s;
-    font-weight: bold;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
 }
 
-nav ul li a:hover {
-    background: var(--marron2);
+.navbar a:hover {
+    opacity: 0.8;
 }
 
-/* ------------------------------------
-   ANIMACIÓN DE INICIO
-------------------------------------- */
-
+/* HERO */
 .hero {
     height: 100vh;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    background: var(--crema);
     position: relative;
     overflow: hidden;
-    text-align: center;
 }
 
-.hero-text {
+.welcome {
+    font-size: 2.4rem;
     font-family: 'Lora', serif;
-    font-size: 3rem;
-    color: var(--oscuro1);
+    text-align: center;
     opacity: 1;
-    animation: fadeOut 3s ease forwards 3s;
+    transition: opacity 1.2s ease;
 }
 
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-/* Fondo con el logo */
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url("Logosabor.webp") center/cover no-repeat;
+/* El texto se oculta suavemente */
+.welcome.fade-out {
     opacity: 0;
-    animation: fadeInBg 3s ease forwards 5s;
 }
 
-@keyframes fadeInBg {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* ------------------------------------
-   SECCIONES GENERALES
-------------------------------------- */
-
-.section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
-}
-
-h1, h2 {
-    font-family: 'Lora', serif;
-    text-align: center;
-    color: var(--marron1);
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-}
-
-/* ------------------------------------
-   PRODUCTOS
-------------------------------------- */
-
-.producto img {
+/* LOGO COMO FONDO */
+#fondo-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 450px;
-    border-radius: 12px;
-    border: 3px solid var(--gris2);
-    display: block;
-    margin: 20px auto;
+    height: 100%;
+    background: url("Logosabor.webp") center/contain no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    z-index: -1;
 }
 
-/* ------------------------------------
-   FORMULARIO
-------------------------------------- */
-
-form {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    border: 2px solid var(--gris2);
-    max-width: 600px;
-    margin: auto;
+/* Cuando debe aparecer */
+#fondo-logo.show {
+    opacity: 1;
 }
 
-form input, form textarea, form button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--gris1);
+/* FADE EN ELEMENTOS SCROLL */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-form button {
-    background-color: var(--verde3);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-form button:hover {
-    background-color: var(--marron2);
-}
-
-/* ------------------------------------
-   FOOTER
-------------------------------------- */
-
-footer {
-    background-color: var(--verde3);
-    padding: 20px;
-    text-align: center;
-    color: white;
-    margin-top: 40px;
-}
-
-/* ------------------------------------
-   RESPONSIVE
-------------------------------------- */
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
-    .hero-text {
-        font-size: 2rem;
+    .welcome {
+        font-size: 1.9rem;
     }
-
-    nav ul {
-        gap: 10px;
-    }
-
-    nav ul li a {
-        padding: 6px 10px;
-        font-size: 0.9rem;
-    }
-
-    .producto img {
-        max-width: 90%;
-    }
-       }
+}
