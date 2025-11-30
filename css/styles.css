@@ -263,7 +263,7 @@ button:hover {
 }
 
 .logo-inicio img {
-    width: 280px; /* mismo tamaño que en tus otras páginas */
+    width: 350px;
     max-width: 80%;
     height: auto;
 }
