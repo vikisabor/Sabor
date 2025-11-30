@@ -1,365 +1,218 @@
-/* ----------------------------------------------------------
-   TIPOGRAFÍAS GENERALES
------------------------------------------------------------ */
+/* ------------------------------------
+   PALETA DE COLORES Y TIPOGRAFÍA
+------------------------------------- */
+
+:root {
+    --verde1: #8DA27F;
+    --verde2: #7DAA4F;
+    --verde3: #4E7C2F;
+    --marron1: #5A3A1A;
+    --marron2: #A66E2A;
+    --marron3: #D29A52;
+    --gris1: #95A985;
+    --gris2: #C8D0B7;
+    --oscuro1: #5B3418;
+    --crema: #F3E7C8;
+    --transparente: rgba(0,0,0,0);
+}
 
 body {
     margin: 0;
     padding: 0;
-    font-family: "Lora", serif;
-    background-color: #F3E7C8;
-    color: #5B3418;
-    line-height: 1.6;
-    font-size: 1.2rem;
+    background-color: var(--crema);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--oscuro1);
 }
 
-/* ----------------------------------------------------------
-   MENÚ FIJO
------------------------------------------------------------ */
+/* ------------------------------------
+   NAVBAR FIJO
+------------------------------------- */
 
 header {
-    width: 100%;
-    background-color: rgba(243, 231, 200, 0.85);
+    background-color: var(--verde3);
+    padding: 12px 0;
+    text-align: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(6px);
-    padding: 10px 0;
+    z-index: 20;
+}
+
+header img {
+    width: 110px;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4%;
-}
-
-nav img {
-    height: 60px;
+    background-color: var(--verde2);
+    padding: 10px 0;
+    position: sticky;
+    top: 110px;
+    z-index: 19;
 }
 
 nav ul {
     list-style: none;
-    display: flex;
-    gap: 25px;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
 }
 
 nav ul li a {
     text-decoration: none;
-    font-family: "Playfair Display", serif;
-    font-size: 1.2rem;
-    color: #4E7C2F;
-    padding: 6px 12px;
-    border: 1px solid #7DAA4F;
-    border-radius: 5px;
-    transition: 0.3s ease;
+    color: white;
+    background: var(--verde3);
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
-    background-color: #7DAA4F;
-    color: white;
+    background: var(--marron2);
 }
 
-.logo-top {
-    height: 45px;    /* tamaño ideal para escritorio */
-    width: auto;
-    object-fit: contain;
-}
-
-/* ----------------------------------------------------------
-   HERO (PÁGINA DE INICIO)
------------------------------------------------------------ */
+/* ------------------------------------
+   ANIMACIÓN DE INICIO
+------------------------------------- */
 
 .hero {
-    position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 5%;
-}
-
-/* -------------------------
-   ESTILOS SOLO PARA INICIO
-------------------------- */
-
-body.inicio {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+    justify-content: center;
+    position: relative;
     overflow: hidden;
-    background-color: var(--crema);
-}
-
-/* NAV BAR */
-header {
-    background-color: var(--verde3);
-    padding: 0.5rem 0;
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-}
-
-.navbar {
     text-align: center;
 }
 
-.navbar a {
-    color: white;
-    font-weight: 600;
-    margin: 0 15px;
-    text-decoration: none;
-}
-
-/* FRASE DE BIENVENIDA */
-#bienvenida {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 1;
-    transition: opacity 2s ease;
-    z-index: 5;
-}
-
-.frase {
+.hero-text {
     font-family: 'Lora', serif;
+    font-size: 3rem;
     color: var(--oscuro1);
-    font-size: 2rem;
-    text-align: center;
-    padding: 0 20px;
+    opacity: 1;
+    animation: fadeOut 3s ease forwards 3s;
 }
 
-/* Hero inicio: frase -> difuminado -> logo como fondo */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: var(--crema, #F3E7C8); /* color por defecto si imagen no carga */
-  transition: background 0.8s ease, background-color 0.8s ease;
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
-/* texto de bienvenida */
-.hero .welcome {
-  z-index: 4;
-  color: white;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem, 4.5vw, 3.6rem);
-  text-align: center;
-  padding: 0 20px;
-  opacity: 1;
-  transition: opacity 0.9s ease;
-  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+/* Fondo con el logo */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("Logosabor.webp") center/cover no-repeat;
+    opacity: 0;
+    animation: fadeInBg 3s ease forwards 5s;
 }
 
-/* overlay que dará el difuminado de la imagen */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(rgba(8,6,4,0.35), rgba(8,6,4,0.35));
-  opacity: 0;
-  transition: opacity 0.9s ease;
-  pointer-events: none;
-}
-
-/* estado cuando mostramos el logo como fondo */
-.hero.show-logo {
-  background-image: url('Logosabor.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* al activar el logo aumentamos la opacidad del overlay para legibilidad */
-.hero.show-logo::before {
-  opacity: 1;
-}
-
-/* cuando la .welcome se oculta, aplicamos esta clase desde JS */
-.hero.welcome-hidden .welcome {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-/* efecto de aparecer suave para todo el hero cuando se carga */
-.fade-in {
-  animation: fadeIn 0.9s ease both;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-   }
-
-/* ----------------------------------------------------------
-   ENCABEZADOS
------------------------------------------------------------ */
-
-h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 2.8rem;
-    color: #4E7C2F;
-    text-align: center;
-    margin-top: 40px;
-}
-
-h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 2.2rem;
-    color: #7DAA4F;
-    margin-top: 25px;
-}
-
-h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 1.7rem;
-    color: #5B3418;
-    margin-top: 20px;
-}
-
-/* ----------------------------------------------------------
-   IMÁGENES
------------------------------------------------------------ */
-
-img {
-    max-width: 70%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(90, 58, 26, 0.2);
-}
-
-/* Imágenes dentro de productos */
-.producto img {
-    max-width: 45%;
-}
-
-/* ----------------------------------------------------------
-   CONTENIDO GENERAL
------------------------------------------------------------ */
-
-section, main {
-    padding: 40px 8%;
-}
-
-/* ----------------------------------------------------------
-   FORMULARIO DE CONTACTO
------------------------------------------------------------ */
-
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #FFFFFF;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(90, 58, 26, 0.2);
-}
-
-label {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #A66E2A;
-    border-radius: 8px;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    background-color: #F8F4EB;
-}
-
-button {
-    padding: 12px 20px;
-    font-family: "Playfair Display", serif;
-    font-size: 1.2rem;
-    border: 2px solid #4E7C2F;
-    background: transparent;
-    color: #4E7C2F;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-button:hover {
-    background-color: #4E7C2F;
-    color: white;
-}
-
-/* ----------------------------------------------------------
-   ANIMACIONES
------------------------------------------------------------ */
-
-.fade-in {
-    animation: fadeIn 1.2s ease;
-}
-
-.slide-up {
-    animation: slideUp 1s ease;
-}
-
-@keyframes fadeIn {
+@keyframes fadeInBg {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* ------------------------------------
+   SECCIONES GENERALES
+------------------------------------- */
+
+.section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
 }
 
-/* ----------------------------------------------------------
+h1, h2 {
+    font-family: 'Lora', serif;
+    text-align: center;
+    color: var(--marron1);
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+/* ------------------------------------
+   PRODUCTOS
+------------------------------------- */
+
+.producto img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    border: 3px solid var(--gris2);
+    display: block;
+    margin: 20px auto;
+}
+
+/* ------------------------------------
+   FORMULARIO
+------------------------------------- */
+
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid var(--gris2);
+    max-width: 600px;
+    margin: auto;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gris1);
+}
+
+form button {
+    background-color: var(--verde3);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+form button:hover {
+    background-color: var(--marron2);
+}
+
+/* ------------------------------------
+   FOOTER
+------------------------------------- */
+
+footer {
+    background-color: var(--verde3);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+}
+
+/* ------------------------------------
    RESPONSIVE
------------------------------------------------------------ */
+------------------------------------- */
 
 @media (max-width: 768px) {
 
-    body {
-        font-size: 1rem;
-    }
-
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero {
-        justify-content: center;
-        padding: 0;
-        text-align: center;
-    }
-
     .hero-text {
-        font-size: 2.2rem;
-        max-width: 80%;
-        text-align: center;
+        font-size: 2rem;
     }
 
     nav ul {
-        gap: 12px;
+        gap: 10px;
     }
 
     nav ul li a {
-        padding: 4px 8px;
-        font-size: 1rem;
-    }
-
-    img {
-        max-width: 90%;
+        padding: 6px 10px;
+        font-size: 0.9rem;
     }
 
     .producto img {
-        max-width: 70%;
+        max-width: 90%;
     }
-}
+       }
