@@ -1,4 +1,4 @@
-/* Ocultar logo al hacer scroll SOLO en páginas internas */
+/* Ocultar Logosabor.webp al hacer scroll SOLO en páginas internas */
 document.addEventListener('DOMContentLoaded', function () {
 
   const logoFixed = document.querySelector('.logo-fixed');
