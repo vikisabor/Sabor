@@ -263,8 +263,8 @@ button:hover {
 }
 
 .logo-inicio img {
-    width: 350px;
-    max-width: 80%;
+    width: 280px;
+    max-width: 100%;
     height: auto;
 }
 
@@ -272,3 +272,15 @@ button:hover {
 body.inicio .logo-fixed {
     display: none;
    }
+
+/* Logo fijo en páginas internas */
+.logo-fixed {
+    height: 60px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Ocultado al hacer scroll */
+.logo-hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+}
