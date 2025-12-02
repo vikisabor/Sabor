@@ -1,17 +1,17 @@
-// Ocultar barra superior (logo + menú) al hacer scroll
-let lastScroll = 0;
+// Ocultar logo fijo y menú al hacer scroll
+document.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
 
-window.addEventListener("scroll", function () {
-    const topBar = document.querySelector(".top-bar");
-    const currentScroll = window.scrollY;
+    const logo = document.querySelector(".logo-fixed");
+    const menu = document.querySelector("nav");
 
-    if (currentScroll > lastScroll && currentScroll > 50) {
-        // scrolling hacia abajo → ocultar
-        topBar.classList.add("hidden");
+    if (!logo || !menu) return;
+
+    if (scrollY > 50) {
+        logo.classList.add("logo-hidden");
+        menu.classList.add("hidden");
     } else {
-        // scrolling hacia arriba → mostrar
-        topBar.classList.remove("hidden");
+        logo.classList.remove("logo-hidden");
+        menu.classList.remove("hidden");
     }
-
-    lastScroll = currentScroll;
 });
