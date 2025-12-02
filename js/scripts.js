@@ -1,17 +1,19 @@
-// Ocultar logo fijo y menú al hacer scroll
-document.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
+let ultimoScroll = 0;
+const menu = document.querySelector('.menu');
+const logo = document.querySelector('.logo-inicio');
 
-    const logo = document.querySelector(".logo-fixed");
-    const menu = document.querySelector("nav");
+window.addEventListener('scroll', () => {
+    let actualScroll = window.scrollY;
 
-    if (!logo || !menu) return;
-
-    if (scrollY > 50) {
-        logo.classList.add("logo-hidden");
-        menu.classList.add("hidden");
+    if (actualScroll > ultimoScroll) {
+        // Bajando → ocultar
+        menu.classList.add('ocultar');
+        if (logo) logo.classList.add('ocultar');
     } else {
-        logo.classList.remove("logo-hidden");
-        menu.classList.remove("hidden");
+        // Subiendo → mostrar
+        menu.classList.remove('ocultar');
+        if (logo) logo.classList.remove('ocultar');
     }
+
+    ultimoScroll = actualScroll;
 });
