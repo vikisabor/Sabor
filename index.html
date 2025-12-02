@@ -4,34 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sabor Di Casa</title>
+
+  <!-- Tipografías -->
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="inicio">
 
-  <nav class="menu">
-    <ul>
+  <!-- MENÚ CENTRADO -->
+  <nav class="menu" style="display:flex; justify-content:center; margin-top:20px;">
+    <ul style="display:flex; gap:30px;">
       <li><a href="historia.html">Nuestra Historia</a></li>
       <li><a href="productos.html">Nuestros Productos</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
 
-<section class="hero">
+  <!-- CONTENEDOR GENERAL PARA DAR MÁRGENES -->
+  <main style="padding-left:8%; padding-right:8%;">
 
-    <!-- LOGO GRANDE -->
-    <div class="logo-inicio">
-        <img src="Logosabor.webp" alt="Sabor Di Casa" class="logo-fixed">
-    </div>
+    <section class="hero">
 
-    <!-- FRASE ÚNICA -->
-    <div class="hero-text">
-        Sabores que transforman lo cotidiano en extraordinario
-    </div>
+        <!-- LOGO GRANDE CENTRADO -->
+        <div class="logo-inicio">
+            <img src="Logosabor.webp" alt="Sabor Di Casa" class="logo-fixed">
+        </div>
 
-</section>
+        <!-- FRASE MAYOR Y TIPOGRAFÍA PLAYFAIR DISPLAY -->
+        <div class="hero-text" 
+             style="font-family:'Playfair Display', serif; 
+                    font-size:3.2rem;
+                    font-weight:500;
+                    max-width:70%;
+                    margin:auto;
+                    margin-top:20px;">
+            Sabores que transforman lo cotidiano en extraordinario
+        </div>
 
-<script src="js/scripts.js"></script>
+    </section>
+
+  </main>
+
+  <script src="js/scripts.js"></script>
 </body>
-                              </html>
+          </html>
