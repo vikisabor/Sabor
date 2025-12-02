@@ -13,7 +13,7 @@ body {
 }
 
 /* ----------------------------------------------------------
-   MENÚ FIJO
+   CONTENEDOR SUPERIOR (LOGO + MENÚ)
 ----------------------------------------------------------- */
 
 header {
@@ -24,14 +24,28 @@ header {
     z-index: 1000;
     backdrop-filter: blur(6px);
     padding: 10px 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+/* Ocultar header al hacer scroll */
+.header-hidden {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+
+/* ----------------------------------------------------------
+   MENÚ
+----------------------------------------------------------- */
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 25px;
     padding: 0 4%;
+}
+
+nav img {
+    height: 60px;
 }
 
 nav ul {
@@ -58,47 +72,37 @@ nav ul li a:hover {
 }
 
 /* ----------------------------------------------------------
-   LOGO FIJO (PÁGINAS INTERNAS)
------------------------------------------------------------ */
-
-.logo-fixed {
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    width: 90px;
-    opacity: 1;
-    transition: opacity 0.7s ease, transform 0.7s ease;
-    z-index: 1200;
-    pointer-events: none;
-}
-
-/* Ocultar logo fijo EN LA PÁGINA DE INICIO */
-body.inicio .logo-fixed {
-    display: none;
-}
-
-/* Ocultar al hacer scroll */
-.logo-hidden {
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-/* ----------------------------------------------------------
-   HERO (PÁGINA DE INICIO)
+   HERO INICIO (INDEX)
 ----------------------------------------------------------- */
 
 .hero {
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 5%;
 }
 
-/* Logo grande de inicio */
+/* Logo grande centrado SOLO en index */
 .logo-inicio {
-    display: flex;
-    justify-content: center;
-    margin-bottom:
+    margin-bottom: 20px;
+}
+
+.logo-inicio img {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Frase del inicio */
+.hero-text {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    max-width: 80%;
+    text-align: center;
+    color: #5B3418;
+    font-style: italic;
+    line-height: 1.3;
+    animation: fadeIn 1.
