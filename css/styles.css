@@ -63,4 +63,83 @@ header.top-bar{
 }
 
 /* Logo que aparece en páginas internas (a la izquierda visualmente) */
-.logo
+.logo-top {
+  height: 110px;            /* tamaño mayor para que quede grande */
+  width: auto;
+  display: block;
+  margin-right: 1rem;
+  transition: transform .35s ease, opacity .35s ease;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px){
+  .logo-top{ height: 88px; }
+}
+
+/* Menu (páginas internas y también index usa nav.menu) */
+nav.menu-interno,
+nav.menu {
+  display:flex;
+  align-items:center;
+  gap: 1rem;
+  justify-content:center;
+}
+
+nav.menu-interno ul,
+nav.menu ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+
+nav.menu-interno a,
+nav.menu a{
+  text-decoration:none;
+  color: var(--verde3);
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(125,170,79,0.20);
+  transition: all .25s ease;
+  background: transparent;
+}
+nav.menu-interno a:hover,
+nav.menu a:hover{
+  background: linear-gradient(90deg, rgba(125,170,79,0.12), rgba(166,110,42,0.08));
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(80,60,40,0.06);
+}
+
+/* ----------------------------------------------------------
+   HERO (PÁGINA DE INICIO)
+   - Aquí mostramos el logo grande y la frase debajo,
+     manteniendo la estética y tipografías.
+----------------------------------------------------------- */
+.inicio .hero{
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.2rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--crema); /* respaldo */
+}
+
+/* Logo grande en inicio (imagen centrada, tamaño mayor) */
+.logo-inicio {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.logo-inicio img{
+  width: 420px;        /* más grande como pediste */
+  max-width: 86%;
+  height: auto;
+  display:block;
