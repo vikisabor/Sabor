@@ -1,35 +1,17 @@
-/* Ocultar Logosabor.webp al hacer scroll SOLO en páginas internas */
-document.addEventListener('DOMContentLoaded', function () {
+// Ocultar barra superior (logo + menú) al hacer scroll
+let lastScroll = 0;
 
-  const logoFixed = document.querySelector('.logo-fixed');
+window.addEventListener("scroll", function () {
+    const topBar = document.querySelector(".top-bar");
+    const currentScroll = window.scrollY;
 
-  // Si estoy en index, NO hacer nada
-  if (document.body.classList.contains('inicio')) return;
-
-  if (!logoFixed) return;
-
-  const HIDE_SCROLL_Y = 80;
-
-  function checkScroll() {
-    const y = window.scrollY;
-
-    if (y > HIDE_SCROLL_Y) {
-      logoFixed.classList.add('logo-hidden');
+    if (currentScroll > lastScroll && currentScroll > 50) {
+        // scrolling hacia abajo → ocultar
+        topBar.classList.add("hidden");
     } else {
-      logoFixed.classList.remove('logo-hidden');
+        // scrolling hacia arriba → mostrar
+        topBar.classList.remove("hidden");
     }
-  }
 
-  checkScroll();
-
-  let ticking = false;
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        checkScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
+    lastScroll = currentScroll;
 });
