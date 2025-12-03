@@ -65,27 +65,26 @@ nav ul li a:hover {
 ----------------------------------------------------------- */
 
 .hero {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
+    flex-direction: column;  /* <-- Esto es lo importante */
+    justify-content: center;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 5%;
+    text-align: center;
+    padding: 0;
+    background: none; /* <-- elimina el fondo que te estaba empujando todo */
 }
 
 .hero-text {
     font-family: "Playfair Display", serif;
     font-size: 3rem;
-    max-width: 40%;
-    text-align: right;
+    max-width: 90%;
+    text-align: center;     /* CENTRA EL TEXTO */
     color: #5B3418;
     font-style: italic;
     line-height: 1.3;
     animation: fadeIn 1.8s ease;
 }
-
 /* ----------------------------------------------------------
    ENCABEZADOS
 ----------------------------------------------------------- */
@@ -280,3 +279,16 @@ button:hover {
     text-align: center;
     margin-top: 20px;
        }
+.logo-inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.logo-inicio img {
+    width: 450px;       /* AGRANDA EL LOGO */
+    max-width: 90%;     /* Evita desbordes en celular */
+    height: auto;
+   }
