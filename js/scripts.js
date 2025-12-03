@@ -63,3 +63,24 @@ document.addEventListener('DOMContentLoaded', function () {
   // Opcional: si querés que al hacer focus en el menú también se oculte,
   // podés agregar listeners de enfoque. Por ahora no lo hacemos.
 });
+// Ocultar top-bar al hacer scroll (solo NO en index)
+document.addEventListener("DOMContentLoaded", () => {
+    const topBar = document.querySelector(".top-bar");
+
+    if (!topBar) return;
+    if (document.body.classList.contains("inicio")) return; // no ocultar en index
+
+    let lastY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+        const currentY = window.scrollY;
+
+        if (currentY > lastY && currentY > 50) {
+            topBar.classList.add("hide");
+        } else {
+            topBar.classList.remove("hide");
+        }
+
+        lastY = currentY;
+    });
+});
