@@ -255,20 +255,14 @@ button:hover {
     }
 }
 
-/* Logo grande solo en inicio */
-.logo-inicio {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+/* Ocultar header al hacer scroll */
+.top-bar {
+    position: sticky;
+    top: 0;
+    transition: transform 0.4s ease;
+    z-index: 1000;
 }
 
-.logo-inicio img {
-    width: 350px;
-    max-width: 80%;
-    height: auto;
+.top-bar.hide {
+    transform: translateY(-100%);
 }
-
-/* Ocultar logo fijo en página de inicio */
-body.inicio .logo-fixed {
-    display: none;
-    }
