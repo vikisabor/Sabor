@@ -265,3 +265,18 @@ button:hover {
 .top-bar.hide {
     transform: translateY(-100%);
 }
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+    text-align: center;
+}
+
+.hero-text {
+    max-width: 80%;
+    text-align: center;
+    margin-top: 20px;
+       }
