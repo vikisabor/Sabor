@@ -59,7 +59,10 @@ nav ul li a:hover {
     background-color: #7DAA4F;
     color: white;
 }
-
+.menu {
+    position: relative;
+    z-index: 10;
+}
 /* ----------------------------------------------------------
    HERO (PÁGINA DE INICIO)
 ----------------------------------------------------------- */
